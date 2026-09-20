@@ -7,3 +7,5 @@
 * Victory Conditions - A player wins if they have 3 tiles filled on the board in a row.
 
 * Draw/Tie Conditions - The game becomes a tie if it is no longer possible for either player to win
+
+* Target Domain Name - server.headley.edu
