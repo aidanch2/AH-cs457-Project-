@@ -17,15 +17,14 @@
 > - You are encouraged to use python, but I'm not going to make it a strict requirement. The instructor and TA's ability to help with C or Rust, etc will be diminished in other languages.
 
 ### 1.1 Game Overview
-- **Chosen Game:** [e.g., Terminal Trivia, Tic-Tac-Toe, Connect Four, Battleship]
+- **Chosen Game:** Tic Tac Toe
 - **Player Capacity:** 2 Players (Simulated via 2 CML Client nodes)
-- **Game Summary:** [Briefly describe the gameplay mechanics and rules]
+- **Game Summary:** Each player will take turns placing pieces on a 3x3 board. you win the game by having 3 peices in a row.
 
 ### 1.2 Core Game Rules & Win/Draw Conditions
-- **Turn Mechanics:** [Explain how turn order is enforced between Player 1 and Player 2]
-- **Victory Condition:** [Define how a player wins the game]
-- **Draw/Tie Condition:** [Define how a draw/tie is detected and handled]
-
+- **Turn Mechanics:** To figure out who goes first. A random number between 1 and 10 will be chosen, players must try to guess the number. whoever is closest will have the first turn. if both players guess a number equally distant to the true number than the process is redone until a winner is found.
+- **Victory Condition:** A player wins if they have 3 tiles filled on the board in a row.
+- **Draw/Tie Condition:** The game becomes a tie if it is no longer possible for either player to win
 ---
 
 ## 2. Application-Layer Messaging Protocol Blueprint (Sprint 1 Deliverable)
