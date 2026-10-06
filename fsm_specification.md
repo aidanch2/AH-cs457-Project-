@@ -1,6 +1,5 @@
 # Server-Side Finite State Machine (FSM)
 
-The following state diagram defines the lifecycle of the Tic Tac Toe game server. It includes standard game progression as well as explicit handling for edge cases such as invalid moves, out-of-turn actions, and sudden client disconnections.
 
 ```mermaid
 stateDiagram-v2
