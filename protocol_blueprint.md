@@ -5,4 +5,4 @@
 * Serialization Format:
   - JSON
 * Framing Rule Chosen:
- - Option A: Newline-Delimited JSON (\n Framing)
+  - Option A: Newline-Delimited JSON (\n Framing)
