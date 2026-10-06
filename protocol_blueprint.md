@@ -42,14 +42,9 @@
 
 # Connection Termination & Socket Lifecycle Management
 
-## Application-Layer Disconnect (DISCONNECT Message)
 * Application-Layer Disconnect (DISCONNECT Message)
-  - in this circumstance the client will send a DISCONNECT message to the server
+  - if a player quits the client will send a DISCONNECT message to the server. The server will declare a forfeit and close the socket
 * Transport-Layer Teardown (TCP FIN / Clean Closure)
-  - this will trigger the 0-byte EOF condition that my server will be looking for
+  - if the client nicely closes the socket the server will recieve 0 bytes which triggers the condition: if not data: break... and the infinite loop will not happen
 * Abrupt Termination (TCP RST / Hard Drops)
-  - ubn this situation the server will catch a ConnectionResetError so the lobby wont crash
-
-## The TCP EOF (0-Byte) Rule in Socket Programming
-* 
- 
+  - in this situation the server will catch a ConnectionResetError and a BrokenPipeError so the lobby wont crash
