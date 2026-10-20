@@ -46,4 +46,6 @@ sequenceDiagram
         Server-->>Client1: ERROR ("Invalid Move" or "Not Your Turn")
     end
     
-    Note over Server: Thread 1 releases Global Game Lock```
+    Note over Server: Thread 1 releases Global Game Lock
+```
+
