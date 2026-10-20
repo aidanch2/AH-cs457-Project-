@@ -49,3 +49,5 @@ sequenceDiagram
     Note over Server: Thread 1 releases Global Game Lock
 ```
 
+# Score and Leaderboard Sync
+* There server will have a shared dictionary or maybe a struct or some other kind of object in memory that has all the round scores. because the score state will be shared across all threads updates can only happen when one of the threads is in the critical section. when a valid move is made or there is a win or a tie the thread will increment the score or modify whatever variable it needs to and then the server will broadcast it in a STATE_UPDATE, so everyones screen / score / UI updates at the same time.
