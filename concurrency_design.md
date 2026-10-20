@@ -1,0 +1,3 @@
+## Chosen Architecture
+* multi threading
+* 
