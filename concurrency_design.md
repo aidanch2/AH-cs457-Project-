@@ -23,3 +23,26 @@
 
 ## Client Connection Teardown
 * if a client loses connection, quits, or the game ends. the recv() command will throw an. error or return an empty string... when that happens that thread will break out of the infinite loop... then it aquires the game lock... and removes itself from the connected clients list... then closes its socket and releases the lock
+
+# Mermaid Sequence Diagram
+
+sequenceDiagram
+    autonumber
+    actor Client1 as Client 1 (Player X)
+    participant Server as Game Server (Multi-Threaded)
+    actor Client2 as Client 2 (Player O)
+
+    Client1->>Server: MOVE (row: 1, col: 1)
+    
+    Note over Server: Thread 1 acquires Global Game Lock
+    Note over Server: Server validates: Is it Client 1's turn?<br/>Is cell (1,1) empty?
+    
+    alt Valid Move
+        Note over Server: Update Game Board<br/>Switch Active Turn to Player O<br/>Update Round Score
+        Server-->>Client1: STATE_UPDATE (Board, Turn: Player O, Score)
+        Server-->>Client2: STATE_UPDATE (Board, Turn: Player O, Score)
+    else Invalid / Out of Turn Move
+        Server-->>Client1: ERROR ("Invalid Move" or "Not Your Turn")
+    end
+    
+    Note over Server: Thread 1 releases Global Game Lock
