@@ -8,6 +8,17 @@
 
 # Thread Safety Strategy: One Global Lock
 
+## Shared Resources
+
+* Game Board - its just a 3x3 matrix
+* current_turn variable - says which clients turn it is so no player can make a turn out of order or make 2 turns consecutively
+* connected_clients list - a list of all the clients that are connected in that moment
+* score dictionary - i might make it a struct i forget which language is which but it will have all the info for win / loss history and that stuff
+
+## Critical Section Info
+
+* critical section will occur whenever theres a move command, before a client reads the board or the turn variable the server thread needs to aquire the game lock, validate a move, change the shared state, and send an update to all the clients, then release the lock.
+
 # Connection Lifecycle
 
 ## Listening Socket Accept
